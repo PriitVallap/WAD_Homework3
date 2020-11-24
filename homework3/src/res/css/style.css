@@ -16,6 +16,7 @@ body {
 }
 
 a {
+    height: 100%;
     color: #40c4ff;
 }
 
@@ -71,6 +72,7 @@ header:hover {
 
 nav {
     display: flex;
+    height: 100%;
     background-color: #ffffff;
     align-items: center;
 }
@@ -115,7 +117,7 @@ nav div.avatar-container {
 
 .main-container {
     width: 50%;
-    min-height: 100%;
+    height: 100%;
     margin: auto auto;
     padding: 90px 15px 15px 15px;
     background-color: #ffffff;
@@ -243,11 +245,17 @@ nav div.avatar-container {
 }
 
 .follow-button{
-    background-color: #82008f;
+    align-items: center;
+    margin-top: 20px;
+    background-color: purple;
+    border-radius: 5px;
 }
 
-.follow-button.followed{
-    background-color: #ffffff;
-    border: 1px solid #82008f;
-    color: #82008f;
+.followClicked{
+    align-items: center;
+    margin-top: 20px;
+    background-color: white;
+    border: 1px solid purple;
+    border-radius: 5px;
+    color:purple; 
 }
