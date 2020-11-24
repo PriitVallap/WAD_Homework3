@@ -11,11 +11,9 @@
         <div class="search-container">
           <input type="text" name="search"><button @click="go_to_browse" type="button">Search</button>
         </div>
-        <div class="avatar-container">
-          <a href="#" v-on:click.prevent="showDropDown=!showDropDown">
-        <img src="@/res/images/avatar.png" alt="avatar">
-        </a>
-        </div>
+
+        <Dropdown :items="links" />
+
       </nav>
     </header>
     <div class="main-container">
@@ -50,17 +48,34 @@
 </template>
 
 <script>
-//import router from './router'
-//import Dropdown from "@/components/Dropdown";
+// eslint-disable-next-line no-unused-vars
+import Dropdown from "./Dropdown";
+
 export default {
     name: 'Index',
-      methods: {
+    components: {
+      Dropdown
+    },
+    data () {
+      return{
+        links: [
+          {link: 'user-name', name: "John Doe"},
+          {link: 'user-email', name: "e-mail"},
+          {link: "go_to_browse", name: "Browse"},
+          {link: "go_to_login", name: "Logout"}
+        ]
+      }
+    },
+    methods: {
     go_to_browse: function() {
       this.$router.push("/browse")
     },
-        go_to_index: function() {
+      go_to_index: function() {
       this.$router.push("/index")
-    }
+    },
+      go_to_login: function () {
+        this.$router.push("/login")
+      }
   }, 
   computed: {
     posts() {
@@ -88,5 +103,6 @@ export default {
         }
     }
     -->
-<style scoped src="@/res/css/style.css">
+<style scoped src="../res/css/style.css">
+
 </style>

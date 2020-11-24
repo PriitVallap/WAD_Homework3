@@ -10,12 +10,7 @@
         <div class="search-container">
           <input type="text" name="search"><button @click="go_to_browse" type="button">Search</button>
         </div>
-        <div class="avatar-container">
-          <!-- <a href="#" v-on:click.prevent="showDropDown=!showDropDown"> -->
-          <a href="" v-on:click="go_to_dropdown">
-        <img src="@/res/images/avatar.png" alt="avatar">
-        </a>
-        </div>
+        <Dropdown :items="links" />
       </nav>
     </header>
     <div class="main-container">
@@ -32,9 +27,23 @@
 <script>
 
 //import Dropdown from "@/components/Dropdown";
+import Dropdown from "@/components/Dropdown";
+
 export default {
   name: 'Browse',
-  //components: {Dropdown},
+  components: {
+    Dropdown
+  },
+  data () {
+    return{
+      links: [
+        {link: 'user-name', name: "John Doe"},
+        {link: 'user-email', name: "e-mail"},
+        {link: "go_to_browse", name: "Browse"},
+        {link: "go_to_login", name: "Logout"}
+      ]
+    }
+  },
   methods: {
     go_to_browse: function() {
       this.$router.push("/browse")
@@ -42,9 +51,9 @@ export default {
     go_to_index: function() {
       this.$router.push("/index")
     },
-    go_to_dropdown: function() {
-      this.$router.push("/dropdown")
-    },
+    go_to_login: function () {
+      this.$router.push("/login")
+    }
   },
   computed: {
     profiles(){
@@ -58,5 +67,5 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped src="@/res/css/style.css">
+<style scoped src="../res/css/style.css">
 </style>
