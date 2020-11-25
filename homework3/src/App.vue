@@ -12,5 +12,5 @@ export default {
 }
 </script>
 
-<style scoped src="res/css/style.css">
+<style scoped src="@/res/css/style.css">
 </style>

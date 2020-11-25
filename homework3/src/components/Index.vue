@@ -103,6 +103,6 @@ export default {
         }
     }
     -->
-<style scoped src="../res/css/style.css">
+<style scoped src="@/res/css/style.css">
 
 </style>
