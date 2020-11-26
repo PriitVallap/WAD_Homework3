@@ -39,8 +39,8 @@ export default {
       links: [
         {link: 'user-name', name: "John Doe"},
         {link: 'user-email', name: "e-mail"},
-        {link: "go_to_browse", name: "Browse"},
-        {link: "go_to_login", name: "Logout"}
+        {link: "Index", name: "Main"},
+        {link: "Logout", name: "Logout"}
       ]
     }
   },
@@ -52,7 +52,7 @@ export default {
       this.$router.push("/index")
     },
     go_to_login: function () {
-      this.$router.push("/login")
+      this.$router.push("/")
     }
   },
   computed: {

@@ -8,7 +8,7 @@
             <p :class="item.link">{{ item.name }}</p>
           </div>
           <div v-else>
-            <a href="">{{ item.name }}</a>
+            <a href="" @click="linkTo(item.link)" >{{ item.name }}</a>
           </div>
         </span>
       </div>
@@ -26,6 +26,17 @@ export default {
       showDropDown: false
     };
   },
+  methods: {
+    linkTo(e) {
+      if (e === 'Browse') {
+        this.$router.push("/browse");
+      } else if(e === "Logout") {
+        this.$router.push("/")
+      } else if(e === "Index"){
+        this.$router.push("/index")
+      }
+    }
+  }
 }
 </script>
 
