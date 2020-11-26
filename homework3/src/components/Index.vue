@@ -22,7 +22,7 @@
           <div class="post-author-info">
             <img :src="post.author.avatar">
             {{post.author.firstname}} {{post.author.lastname}}
-            
+
           </div>
                   <small>
           {{post.createTime}}
@@ -31,7 +31,7 @@
         <div class="post-image" v-if="post.media === null">
         </div>
        <div class="post-image" v-else-if="post.media.type === 'video'">
-          <video controls> 
+          <video controls>
             <source :src="post.media.url"></video>
       </div>
              <div class="post-image" v-else>
@@ -41,7 +41,7 @@
       <div>
         <h3> {{post.text}} </h3>
       </div>
-      <button class="like-button"> {{post.likes}} </button>
+        <button :class="{'like-button' : !liked, 'like-button.liked' : liked}" @click="liked=!liked"> {{post.likes}} </button>
       </div>
     </div>
   </body>
@@ -58,6 +58,7 @@ export default {
     },
     data () {
       return{
+        liked: false,
         links: [
           {link: 'user-name', name: "John Doe"},
           {link: 'user-email', name: "e-mail"},

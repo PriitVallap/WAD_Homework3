@@ -17,8 +17,7 @@
       <div class="profile"  v-for='profile in profiles' :key='profile.id'>
         <img :src="profile.avatar">
         <h2>{{profile.firstname}} {{profile.lastname}}</h2>
-        <button class="follow-button">Follow</button>
-
+        <button :class="{'follow-button' : !followed, 'followClicked' :followed}" @click="followed=!followed">Follow</button>
       </div>
     </div>
   </body>
@@ -36,6 +35,7 @@ export default {
   },
   data () {
     return{
+      followed: false,
       links: [
         {link: 'user-name', name: "John Doe"},
         {link: 'user-email', name: "e-mail"},
